@@ -4,30 +4,48 @@ In a browser, the JavaScript Global Object is the Window. However, because Node 
         __filename
         console
         global
-        exports
         setImmediate(callback[,arg][, ...])
         setInterval(callback,delay[,arg][, ...])
         setTimeout(callback,delay[,arg][, ...])
 */
+function function15seconds(){
+    console.log('I only appear once, after 15 secconds have passed. ');
+}
+setTimeout(function15seconds, 15000);
+
+console.log('Hey there, here is where we are, and the file we are executing');
+console.log(__dirname);
+console.log(__filename);
+
+
+
+// NOW WE ARE GOING TO TALK ABOUT MODULES //
+// FUNCTION EXPRESSION: We set a variable equal to a function.
 var time = 0;
 var timer = setInterval(function(){
     time +=2;
-    console.log(time + ' seconds have passed');
+    console.log(time + ' seconds have passed ' + Date());
 if (time > 5){
     clearInterval(timer);
 }
 },2000);
-
-function function5seconds(){
-    console.log('I only appear once, after 5 secconds have passed. ');
+function sayHi(){
+    console.log('hi');
 }
+sayHi();
+var sayBye = function(){
+    console.log('bye');
+};
+sayBye();
+// we can pass functions from one to another.
+function callFunction(fun){
+    sayHi();
+    fun();
+} 
+callFunction(sayHi);
 
-var time1 = 0;
-function function10seconds(){
-    console.log('I come out every 10 seconds. So far, '+time1+' seconds have passed');
-    time1+=10;
-}
 
-console.log('Hey there');
-setTimeout(function5seconds, 5000);
-setInterval(function10seconds,2000,20000);
+// MODULES AND REQUIRE //
+// A module is essentially another JavaScript file
+var counter = require('./count');
+console.log(counter(['shaun','crystal','ryu']));
