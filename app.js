@@ -9,9 +9,9 @@ In a browser, the JavaScript Global Object is the Window. However, because Node 
         setTimeout(callback,delay[,arg][, ...])
 */
 function function15seconds(){
-    console.log('I only appear once, after 15 secconds have passed. ');
+    console.log('I only appear once, after 300 secconds have passed. ');
 }
-setTimeout(function15seconds, 15000);
+setTimeout(function15seconds, 300000);
 
 console.log('Hey there, here is where we are, and the file we are executing');
 console.log(__dirname);
@@ -48,4 +48,4 @@ callFunction(sayHi);
 // MODULES AND REQUIRE //
 // A module is essentially another JavaScript file
 var counter = require('./count');
-console.log(counter(['shaun','crystal','ryu']));
+console.log(counter(['carlos','dasaed','salcedo','carreno']));
