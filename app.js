@@ -7,6 +7,8 @@ In a browser, the JavaScript Global Object is the Window. However, because Node 
         setImmediate(callback[,arg][, ...])
         setInterval(callback,delay[,arg][, ...])
         setTimeout(callback,delay[,arg][, ...])
+
+        How the hell did this thing connect??
 */
 function function15seconds(){
     console.log('I only appear once, after 300 secconds have passed. ');
