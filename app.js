@@ -41,10 +41,10 @@ sayBye();
 function callFunction(fun){
     sayHi();
     fun();
-} 
+}
 callFunction(sayHi);
 
-
+document.write("hello world")
 // MODULES AND REQUIRE //
 // A module is essentially another JavaScript file
 var counter = require('./count');
