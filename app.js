@@ -7,8 +7,6 @@ In a browser, the JavaScript Global Object is the Window. However, because Node 
         setImmediate(callback[,arg][, ...])
         setInterval(callback,delay[,arg][, ...])
         setTimeout(callback,delay[,arg][, ...])
-
-        How the hell did this thing connect??
 */
 function function15seconds(){
     console.log('I only appear once, after 300 secconds have passed. ');
@@ -46,7 +44,6 @@ function callFunction(fun){
 }
 callFunction(sayHi);
 
-document.write("hello world")
 // MODULES AND REQUIRE //
 // A module is essentially another JavaScript file
 var counter = require('./count');
