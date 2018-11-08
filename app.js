@@ -25,8 +25,8 @@ var time = 0;
 var timer = setInterval(function(){
     time +=2;
     console.log(time + ' seconds have passed ' + Date());
-if (time > 5){
-    clearInterval(timer);
+    if (time > 5){
+      clearInterval(timer);
 }
 },2000);
 function sayHi(){
