@@ -7,8 +7,12 @@ Little rules for JavaScript
 3) White space doesn't matter
 4) Comments are done in the same way as in Java
 5) JavaScript runs from top to bottom
+6) You can store functions in variables, and pass functions into functions
 **/
 
 var myVariableCarlos;
 myVariableCarlos=10;
+myVariableCarlos=10+10;
 console.log("myVariableCarlos is equal to: "+myVariableCarlos+". \nJavaScript treats variables similar to python. In other words, you don't have to declare the type of variable. Everything is expressed with just the keyword 'var'");
+myVariableCarlos="My names is Carlos"
+console.log("Variables can easily change from one type to the ")

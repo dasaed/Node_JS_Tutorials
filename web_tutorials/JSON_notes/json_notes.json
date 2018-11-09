@@ -1,0 +1,28 @@
+{
+"title":"This are just some notes on JSON files",
+"comment": "Data types
+Number = JSON doesn't distinguish between integer or floats
+String = String of unicode characters. Use double quotes
+Boolean = true/false
+Array = Ordered list of 0 or more values
+Object = Unordered collection of key/value pairs
+Null = empty value",
+"keyrule1":" everything comes in key:value pairs",
+"keyrule2":"keys must always be in quotes",
+"keyrule3":"values must also be in quotes. Although quotes may not be needed for certain types of primitive values, you are better off putting quotes around, just to be safe",
+"objects":"Objects in JSON files are different from objects in JavaScript"
+}
+{
+  "array": [
+    1,
+    2,
+    3
+  ],
+  "boolean": true,
+  "color": "#82b92c",
+  "null": null,
+  "number": 123,
+  "object": { "a": "b", "c": "d", "e": "f"
+  },
+  "string": "Hello World"
+}
