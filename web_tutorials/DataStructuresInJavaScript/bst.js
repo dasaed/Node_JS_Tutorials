@@ -2,8 +2,11 @@
 
 This case code is originally from https://www.youtube.com/watch?v=5cU1ILGy6dM
 I just made my own little tweaks
-
 Original Source: https://codepen.io/beaucarnes/pen/ryKvEQ?editors=0011
+
+
+/////////////////////////////////////////////////////////////////////////////
+In the binary search tree, in this particular example, we are working with unique keys, that cannot be repeated.
 */
 
 class Node { // Holds the data = represents each node in the tree
@@ -12,7 +15,7 @@ class Node { // Holds the data = represents each node in the tree
     this.left = left; // the left Node
     this.right = right; // the right Node
     /*
-        data
+        data(root)
        /    \
     left    right
     */
@@ -24,33 +27,37 @@ class BST {
     this.root = null;
   }
   add(data) {
-    const node = this.root;
-    if (node === null) {
+    const node = this.root; // store the root in a variable
+    if (node === null) { // checking if the tree is empty
       this.root = new Node(data);
       return;
-    } else {
-      const searchTree = function(node) {
-        if (data < node.data) {
-          if (node.left === null) {
+    } else { // if the tree is not empty
+      ///////// This block is a recursive function /////////////////
+      const searchTree = function(node) { //create a new variable searchTree, which is going to be equal a function, and in this case, this function will be in charge of putting the node in its proper place
+        if (data < node.data) { // if data is less than the current root
+          if (node.left === null) { // if left node is null
             node.left = new Node(data);
             return;
-          } else if (node.left !== null) {
-            return searchTree(node.left);
+          } else if (node.left !== null) { // if left node is not null
+            return searchTree(node.left); //run this same function, on the left Node
           }
-        } else if (data > node.data) {
-          if (node.right === null) {
+        } else if (data > node.data) { // if data is greater than the root
+          if (node.right === null) { // if the right node is empty
             node.right = new Node(data);
             return;
-          } else if (node.right !== null) {
+          } else if (node.right !== null) { //if the right node is not empty
             return searchTree(node.right);
           }
-        } else {
+        } else { // if the current value and the root value are the same
+          console.log("The value already exist in the BST");
           return null;
         }
       };
+      ///////// this is where the block above finishes /////////////////////
+      // Since a function cannot be initiated unless the user calls that function, we have to call it our selves with the following line:
       return searchTree(node);
-    }
-  }
+    } //this ends the 'else' statement corresponding to the tree not being empty
+  } //end of add data
   findMin() {
     let current = this.root;
     while (current.left !== null) {
