@@ -18,7 +18,9 @@ It is recommended to put the JavaScript at the end, as the web pages are loaded 
 However, in some cases, you can have asynchronous JavaScript, meaning it could be put anywhere as it will load side by side with the page.
 If you have a really long script, you should put it on an external file, so it doesn't mess up the content of your page.
 If your javascript code is really short, then it is ok to have it within the same page.
+If you use javascript from a "js" file, what you write in between the <script> tags won't matter. for example, the following alert doesn't work
 */
+alert("Hello World");
 </script>
 <script type="text/javascript">
 console.log("These are the common operationrs: = assign, + addition, - subtraction, / division, * multiplication");
