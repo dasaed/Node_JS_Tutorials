@@ -15,4 +15,4 @@ myVariableCarlos=10;
 myVariableCarlos=10+10;
 console.log("myVariableCarlos is equal to: "+myVariableCarlos+". \nJavaScript treats variables similar to python. In other words, you don't have to declare the type of variable. Everything is expressed with just the keyword 'var'");
 myVariableCarlos="My names is Carlos"
-console.log("Variables can easily change from one type to the ")
+console.log("Variables can easily change from one type to another and viceversa, depending on how you use them in your code.")
