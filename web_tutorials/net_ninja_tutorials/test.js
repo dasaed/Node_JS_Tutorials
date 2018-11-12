@@ -18,9 +18,18 @@ myVariableCarlos="My names is Carlos"
 console.log("Variables can easily change from one type to another and viceversa, depending on how you use them in your code.")
 
 //////////lesson 11 - control flow and if statements ////////////
-var thisIsSoBasic = true;
-if (thisIsSoBasic) {
-  console.log("thisIsSoBasic = "+thisIsSoBasic)
+var myPI = function(myPI){
+  var temp = 0;
+    while(temp < myPI){
+
+    }           // The function returns the product of p1 and p2
+}
+}
+
+if (myPI > 3.14) {
+  console.log("MyPI is greater than the actual value of pi. MyPI = "+myPI)
+} else if (myPI < 3.14){
+  console.log("MyPI is less than the actual value of pi. MyPI = "+myPI)
 } else {
-  console.log("I need to move a little faster")
+  console.log("MyPI is close enough to the actual value of pi. MyPI = "+myPI)
 }
