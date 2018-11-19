@@ -139,6 +139,28 @@ var tags = "meat, ham, salami, pork, beef, chicken";
 var tagsArray = tags.split(",");
 console.log(tagsArray);
 ////// javascript arrays - lesson 25
+var myArray = [];
+myArray[0] = 25; 
+myArray[1] = true;
+myArray[2] = "hello";
+var myArray2 = [10,20,"hi",false];
+
+
+
+
+
+
+/// side note
+function roundToN(num1,num2) {
+    return +(Math.round(num1 + "e+"+num2)  + "e-"+num2);
+}
+var MyPI = roundToN(Math.PI, 3);
+console.log(MyPI);
+/// end of side note
+
+
+
+
 
 console.log("//////////////// this is the end of test.js //////////////////")
 
