@@ -140,29 +140,98 @@ var tagsArray = tags.split(",");
 console.log(tagsArray);
 ////// javascript arrays - lesson 25
 var myArray = [];
-myArray[0] = 25; 
+myArray[0] = 25;
 myArray[1] = true;
 myArray[2] = "hello";
+myArray[3] = "zzz";
+myArray[4] = false;
 var myArray2 = [10,20,"hi",false];
- 
+var myArrayA = [];
+var myArrayB = ["we add the elements inside",true,100,"like this"];
+//a few methods with arrays
+console.log("This is the value of myArra: "+myArray);
+console.log("Length of myArray = "+myArray.length);
+console.log("myArray in reversed order = "+myArray.reverse());
+console.log("myArray in sorted order = "+myArray.sort());
 
-
-
-
-
-/// side note
+/// side note = knowing how to round a number in JavaScript
 function roundToN(num1,num2) {
     return +(Math.round(num1 + "e+"+num2)  + "e-"+num2);
 }
-var MyPI = roundToN(Math.PI, 3);
-console.log(MyPI);
+var MyPI = roundToN(Math.PI, 3); //returns the value of PI rounded to 3 decimal places
 /// end of side note
 
+/////////////// Objects ////////////////// lesson 27 and 28
+
+var myCar = new Object();
+myCar.driver = "Carlos";
+myCar.speed = 50;
+myCar.drivable = true;
+myCar.drive = function() {
+  console.log(this.name+" is now Driving");
+};
+myCar.name="mustang";
+
+myCar2 = {
+  driver:"Dasaed",
+  speed: 50,
+  driveable: true,
+  drive: function(){
+    console.log(this.name+" is now Driving, yay!");
+  },
+  name: "corvette",
+  test: function(){
+    console.log(this);
+  },
+  logDriver: function(){
+    console.log("The driver of "+this.name +" is: "+this.driver);
+  }
+}; // end of myCar2
+console.log("First Car: "+myCar.name);
+myCar.drive();
+console.log("Second Car: "+myCar2.name);
+myCar2.drive();
+console.log("Now I compare this for an object, vs this for the entire document");
+myCar2.test();
+console.log(this);
+myCar2.logDriver();
+
+/// constructor functions
+/// the variable normally starts with a capital letter - lesson 30
+var Vehicle = function(name, driver, wheels, maxSpeed, flies, boat ){
+  this.name=name;
+  this.wheels=wheels;
+  this.maxSpeed=maxSpeed;
+  this.driver=driver;
+  this.logDriver = function(){
+    console.log("The driver of "+this.name+" is "+this.driver);
+  };
+  this.flies = flies;
+  this.boat = boat;
+};
+
+var motorcycle = new Vehicle("harley","dasa",2,140);
+motorcycle.logDriver();
 
 
-
+console.log("//// now we are getting into more interesting stuff ////");
+console.log("Lesson 31 -  the date object");
+var myDate = new Date(); //stores current date
+// var AnotherFullDate = new Date (year, month, day, hour, minutes, seconds)
+console.log("Today is "+myDate);
+var myPastDate =  new Date(1545, 11, 21, 10, 30, 15);
+var myFutureDate =  new Date(2145, 10, 1, 10, 30, 40);
+console.log(myPastDate);
+console.log(myFutureDate);
+var birthday = new Date(1991,7,15,6,30,25);//notice that months range from 0 to 11
+console.log(birthday);
+console.log(birthday.getFullYear());
+console.log(birthday.getMonth());
+console.log(birthday.getDate()); // the day of the month
+console.log(birthday.getHours());
+console.log(birthday.getMinutes());
+console.log(birthday.getSeconds());
+console.log(birthday.getDay());// the day of the week ranges from 0 to 6, where 0=sunday!
+console.log(birthday.getTime()); // gets the number of milliseconds since 1st Jan 1970 (epoch time)
 
 console.log("//////////////// this is the end of test.js //////////////////")
-
-
-
