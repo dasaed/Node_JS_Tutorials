@@ -223,8 +223,8 @@ var myPastDate =  new Date(1545, 11, 21, 10, 30, 15);
 var myFutureDate =  new Date(2145, 10, 1, 10, 30, 40);
 console.log(myPastDate);
 console.log(myFutureDate);
-var birthday = new Date(1991,7,15,6,30,25);//notice that months range from 0 to 11
-console.log(birthday);
+var birthday = new Date(2000,0,1,0,0,0);//notice that months range from 0 to 11
+console.log(birthday.toDateString());
 console.log(birthday.getFullYear());
 console.log(birthday.getMonth());
 console.log(birthday.getDate()); // the day of the month
@@ -232,6 +232,38 @@ console.log(birthday.getHours());
 console.log(birthday.getMinutes());
 console.log(birthday.getSeconds());
 console.log(birthday.getDay());// the day of the week ranges from 0 to 6, where 0=sunday!
-console.log(birthday.getTime()); // gets the number of milliseconds since 1st Jan 1970 (epoch time)
+console.log(birthday.getTime()); // gets the number of milliseconds since 1st Jan 1970 (epoch time)  ---> useful when comparing objects.
+console.log("//////////////// THE DOM!!! - lesson 32 //////////////////");
+/*
+Documento Object Model
+Use the DOM when interacting with the web pages
+  - add content to an html document
+  - delete content to an html document
+  - change content to an html document
+*For now, the document would be the page, normally an HTML document.
+*Every HTML element in the document is an objects
+  -<head></head> is an object
+  -<body></body> is an object
+  -<footer></footer> is an object
+  -Basically any html tag is an object
+*The Model
+                      HTML
+                  /         \
+                head         body
+                |           /     \
+              title       ul      div
+                        /  |  \     \
+                       li li li      p
+The model is sort of just a tree organization of the page
+within the model, we have nodes
+Node = everything we can change in the document is a node (elements, text within elements, html attributes)
+
+*/
+//  lesson 33 -  traversing the DOM
+
+
+
+
+
 
 console.log("//////////////// this is the end of test.js //////////////////")
