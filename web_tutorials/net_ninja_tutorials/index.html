@@ -1,421 +1,611 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8"/>
+	<meta charset="utf-8" />
 	<title> JavaScript Tutorials </title>
-<head>
-<body>
-
-<h1 id="page-title">Going back to review the basic concepts</h1>
-<div id="content">
-<p>The classic Hello World Paragraph</p>
-
-</div>
-<div class="row">
-	<div class="innerDiv" id="someDiv">
-		<h3 id="listTitle1">This is an unordered list (click me)</h3>
-		<ul id="unorderedList">
-			<li><a href="https://www.google.com">to google</a></li>
-			<li><a href="./A_second_page.html">use this link to move on to another page</a></li>
-			<li>just another item on the list</li>
-		</ul>
-		<span>You shouldn't see this text</span>
-		<h3 id="listTitle2">This is an ordered list</h3>
-		<ol id="orderedList">
-			<li><a href="#">alpha</a></li>
-			<li><a href="#">beta</a></li>
-			<li><a href="#">gamma</a></li>
-			<li><a href="#">delta</a></li>
-		</ol>
-	</div>
-</div>
-<div class="row">
-	<h3 id="author">by Carlos Salcedo </h3>
-	<p>These are just very simple and basic contents</p>
-	<p id="changeMe">This paragraph should be changed via javascript</p>
-</div>
-<div class="row">
-	<h4 id="author">lesson 34 </h3>
-	<p>The attributes of the following link have been changed to take you to google.com: <a href="#" id="test" class="ninja">click me if you wish to go to google.com</a></p>
-</div>
-
-<div class="row">
-	<h4 id="author"> More interesting stuff </h3>
-	<p class="open" id="content1">This paragraph will change if you click the button!</p>
-	<button type="button" id="button1">Click Me!</button>
-</div>
-
-<script type="text/javascript" src="test.js"> //The browser already knows that this is a script.
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	 crossorigin="anonymous">
 /*
-It is recommended to put the JavaScript at the end, as the web pages are loaded from head to bottom.
-However, in some cases, you can have asynchronous JavaScript, meaning it could be put anywhere as it will load side by side with the page.
-If you have a really long script, you should put it on an external file, so it doesn't mess up the content of your page.
-If your javascript code is really short, then it is ok to have it within the same page.
-If you use javascript from a "js" file, what you write in between the <script> tags won't matter. for example, the following alert doesn't work:
-*/
-</script>
-
-<script>
-
-/**
-Little rules for JavaScript
-1) JavaScript is case sensitive
-2) every statement ends with a semicolon, and a statement is basically an action you want JavaScript to do (ie alert message, change background, etc. )
-3) White space doesn't matter
-4) Comments are done in the same way as in Java
-5) JavaScript runs from top to bottom
-6) You can store functions in variables, and pass functions into functions
-**/
-
-console.log("These are the common operationrs: = assign, + addition, - subtraction, / division, * multiplication");
-console.log("These are \"Math Operators Short hand\" - basically, all you have to add is to put the operator before the equal sign (+=, -=, /= and *=) ");
-// Now we are going to work with conditionals (booleans)
-var iLikeMeat = true; // This is the boolean
-iLikeMeat = "true"; // this is the string true
-iLikeMeat = false; // now iLikeMeat is boolean again
-console.log("Is the variable iLikeMeat equal to true??? "+(iLikeMeat==true));
-//Within javascript, 0 and -0 are equal to false. All other numbers would equal to true. for example:
-console.log("Within javascript, 0 and -0 are equal to false. All other numbers would equal to true. for example:");
-console.log(Boolean(0));
-console.log(Boolean(-0));
-console.log(Boolean(100202010120));
-
-var myVariableCarlos;
-myVariableCarlos=10;
-myVariableCarlos=10+10;
-console.log("myVariableCarlos is equal to: "+myVariableCarlos+". \nJavaScript treats variables similar to python. In other words, you don't have to declare the type of variable. Everything is expressed with just the keyword 'var'");
-myVariableCarlos="My names is Carlos"
-console.log("Variables can easily change from one type to another and viceversa, depending on how you use them in your code.")
-
-//////////lesson 11 - control flow and if statements ////////////
-var myPI = 3.1;
-if (myPI > 3.14) {
-  console.log("MyPI is greater than the actual value of pi. MyPI = "+myPI)
-} else if (myPI < 3.14){
-  console.log("MyPI is less than the actual value of pi. MyPI = "+myPI)
-} else {
-  console.log("MyPI is close enough to the actual value of pi. MyPI = "+myPI)
-}
-/////////////////////////////////////////////////////////////////
-
-var age = 5;
-while(age <=10 ){
-  console.log("Your age is less than 10. You are "+age);
-  age++;
-}
-console.log("you are now over 10");
-
-//////////////////////////////////////////////////////////////////
-var links = document.getElementsByTagName("a");
-for (i = 0; i <= links.length; i++){
-  console.log("this is link number "+i+" "+links[i]);
-}
-
-//////////////////////////////////////////////////////////////////
-// the "break" and "continue" keywords
-for (j = 0; j < 10; j++){
-  if (j === 5){
-    console.log("We are skipping 5");
-    continue;
-  }
-  console.log(i);
-
-  if (j === 7){
-    break;
-  }
-}
-console.log("I've broken out of the loop");
-
-//////////////////////////////////////////////////////////////////
-// example of a useful use for loops
-
-var links = document.getElementsByTagName("a");
-for (i = 0; i<  links.length; i++){
-  links[i].className = "Link-"+i; // we added an id to all links in an ordered list
-}
-
-//////////////////////////////////////////////////////////////////
-// introduction to  functions
-function getAverage (a,b) {
-  var average = (a + b)/2;
-  return average;
-}
-
-getAverage(67,134);
-var myResult = getAverage(1,2);
-console.log("");
-/////////////////////////////////////////////////////////////////
-// lesson 21 variable scope
-var foo = 20; // global variable
-function myFunction(){
-  var bar = 10; // local variable - only works in the function
-}
-/////////////////////////////////////////////////////////////////
-// lesson 22 - working with numbers
-var myNumber = 5;
-Math.round(7.5);
-// lesson 23 - NaN = Not a numbers
-var a = 7;
-var b = 6;
-if (isNaN(a)){
-  console.log("That ain't even a number");
-} else{
-  console.log("The meaning of life is: "+(a*b));
-}
-
-
-/////////////////////////////////////////////////////////////////
-// Strings are objects, so they have methods and properties
-// for example
-var myString = "This is just a cool \"string\"";
-console.log("This is the value of myString: "+myString);
-console.log("This is the length(num of char) of myString: "+myString.length);
-console.log(myString.toUpperCase());
-console.log(myString.toLowerCase());
-console.log("This is the index of the word \"string\" in myString:  "+myString.indexOf("string"));
-console.log("if a word doesn't exist, javascript will return a"+myString.indexOf("ninja"));
-
-if (myString.indexOf("Carlos") == -1){
-  console.log("The word Carlos is not in myString variable");
-}
-
-console.log("Now lets compare strings");
-var string1 = "abc";
-var string2 = "ABC";
-console.log(string1 === string2);//This is case sensitive
-console.log(string1.toLowerCase() === string2.toLowerCase());//This is case sensitive
-console.log(string1 > string2);//This is case sensitive
-//// slice and dice strings - tutorial 25
-var str = "hello, world!";
-
-var str2 =  str.slice(2, 9); //specifies beginning and end
-var str3 = str.slice(7); //specifies beginning, but not the end
-console.log("str2: "+str2);
-console.log("str3: "+str3);
-var tags = "meat, ham, salami, pork, beef, chicken";
-var tagsArray = tags.split(",");
-console.log(tagsArray);
-////// javascript arrays - lesson 25
-var myArray = [];
-myArray[0] = 25;
-myArray[1] = true;
-myArray[2] = "hello";
-myArray[3] = "zzz";
-myArray[4] = false;
-var myArray2 = [10,20,"hi",false];
-var myArrayA = [];
-var myArrayB = ["we add the elements inside",true,100,"like this"];
-//a few methods with arrays
-console.log("This is the value of myArra: "+myArray);
-console.log("Length of myArray = "+myArray.length);
-console.log("myArray in reversed order = "+myArray.reverse());
-console.log("myArray in sorted order = "+myArray.sort());
-
-/// side note = knowing how to round a number in JavaScript
-function roundToN(num1,num2) {
-    return +(Math.round(num1 + "e+"+num2)  + "e-"+num2);
-}
-var MyPI = roundToN(Math.PI, 3); //returns the value of PI rounded to 3 decimal places
-/// end of side note
-
-/////////////// Objects ////////////////// lesson 27 and 28
-
-var myCar = new Object();
-myCar.driver = "Carlos";
-myCar.speed = 50;
-myCar.drivable = true;
-myCar.drive = function() {
-  console.log(this.name+" is now Driving");
-};
-myCar.name="mustang";
-
-myCar2 = {
-  driver:"Dasaed",
-  speed: 50,
-  driveable: true,
-  drive: function(){
-    console.log(this.name+" is now Driving, yay!");
-  },
-  name: "corvette",
-  test: function(){
-    console.log(this);
-  },
-  logDriver: function(){
-    console.log("The driver of "+this.name +" is: "+this.driver);
-  }
-}; // end of myCar2
-console.log("First Car: "+myCar.name);
-myCar.drive();
-console.log("Second Car: "+myCar2.name);
-myCar2.drive();
-console.log("Now I compare this for an object, vs this for the entire document");
-myCar2.test();
-console.log(this);
-myCar2.logDriver();
-
-/// constructor functions
-/// the variable normally starts with a capital letter - lesson 30
-var Vehicle = function(name, driver, wheels, maxSpeed, flies, boat ){
-  this.name=name;
-  this.wheels=wheels;
-  this.maxSpeed=maxSpeed;
-  this.driver=driver;
-  this.logDriver = function(){
-    console.log("The driver of "+this.name+" is "+this.driver);
-  };
-  this.flies = flies;
-  this.boat = boat;
-};
-
-var motorcycle = new Vehicle("harley","dasa",2,140);
-motorcycle.logDriver();
-
-
-console.log("//// now we are getting into more interesting stuff ////");
-console.log("Lesson 31 -  the date object");
-var myDate = new Date(); //stores current date
-// var AnotherFullDate = new Date (year, month, day, hour, minutes, seconds)
-console.log("Today is "+myDate);
-var myPastDate =  new Date(1545, 11, 21, 10, 30, 15);
-var myFutureDate =  new Date(2145, 10, 1, 10, 30, 40);
-console.log(myPastDate);
-console.log(myFutureDate);
-var birthday = new Date(2000,0,1,0,0,0);//notice that months range from 0 to 11
-console.log(birthday.toDateString());
-console.log(birthday.getFullYear());
-console.log(birthday.getMonth());
-console.log(birthday.getDate()); // the day of the month
-console.log(birthday.getHours());
-console.log(birthday.getMinutes());
-console.log(birthday.getSeconds());
-console.log(birthday.getDay());// the day of the week ranges from 0 to 6, where 0=sunday!
-console.log(birthday.getTime()); // gets the number of milliseconds since 1st Jan 1970 (epoch time)  ---> useful when comparing objects.
-console.log("//////////////// THE DOM!!! - lesson 32 //////////////////");
+	test.js depends on the content we have in the jquery library. That is why, if you are ever going to use a library in any of your code, you need to make sure you import it first, beforea actully using it.
 /*
-Documento Object Model
-Use the DOM when interacting with the web pages
-  - add content to an html document
-  - delete content to an html document
-  - change content to an html document
-*For now, the document would be the page, normally an HTML document.
-*Every HTML element in the document is an objects
-  -<head></head> is an object
-  -<body></body> is an object
-  -<footer></footer> is an object
-  -Basically any html tag is an object
-*The Model
-                      HTML
-                  /         \
-                head         body
-                |           /     \
-              title       ul      div
-                        /  |  \     \
-                       li li li      p
-The model is sort of just a tree organization of the page
-within the model, we have nodes
-Node = everything we can change in the document is a node (elements, text within elements, html attributes)
 
-*/
-//  lesson 33 -  traversing the DOM
-//33 JavaScript to get getElements
-var elementClass = document.getElementsByClassName("row");
-console.log(elementClass);
-var elementTag = elementClass[1].getElementsByTagName("h3");
-console.log(elementTag);
-elementTag[0].innerHTML = "This is part of a more advanced tutorial";
-var elementID = document.getElementById("changeMe");
-console.log(elementID);
-//lesson 34
-console.log("lesson 34")
-var mySpan = document.getElementsByTagName("span");
-mySpan[0].innerHTML = "<p>I used to be a span, but now I am a pragraph</p>";
-var p2change = document.getElementById("changeMe")
-p2change.innerHTML="<b>I changed you via JavaScript</b>";
+	</script>
+	<script type="text/javascript" src="test.js"> //This script has been put here for lesson 40
+	/*
+	It is recommended to put the JavaScript at the end, as the web pages are loaded from head to bottom.
+	However, in some cases, you can have asynchronous JavaScript, meaning it could be put anywhere as it will load side by side with the page.
+	If you have a really long script, you should put it on an external file, so it doesn't mess up the content of your page.
+	If your javascript code is really short, then it is ok to have it within the same page.
 
-//lesson 35
-console.log("lesson 35");
-var link = document.getElementById("test"); // <a href="/index.html" id="test" class="ninja">attributes</a>
-link.getAttribute("href"); // obtain the value of the attribute href
-link.getAttribute("class"); // obtain the value of the attribute class
+  Lesson 40 == window.onclick ==  a function in JavaScript that waits for the page to load before executing any of its internal code
 
-// link.href is different from link.getAttribute("href")
-// link.getAttribute("href") == to what is actually inside the html tag --> in our example, this would return "/index.html"
-// link.href == what the value of href actually represents --> in our example, this would return "file:///C:/Users/Lenovo/git/Node_JS_Tutorials/web_tutorials/net_ninja_tutorials/index.html#"
-//The following methods, change the values of the attributes inside the html tag
-link.setAttribute("Class", "pie"); // change the value of class
-link.setAttribute("href", "https://www.google.com") // change the value of label
+	*/
+	</script>
 
-console.log("lesson 36 - changing CSS attributes");
-var title = document.getElementById("page-title");
-console.log(title);
-title.setAttribute("sytle", "position: relative,");
-title.setAttribute("sytle", "left: 10px,");
-title.setAttribute("sytle", "position: relative, left: 25px,");
-title.style.color="blue";
-title.style.backgroundColor="#ff9999";
 
-console.log("lesson 37 -  adding elements to DOM");
-// 2 steps: 1) create the html element, 2) put that html where we want it
-//example
-//step 1 - create the new elements that we wish to add
-var newLi = document.createElement("li");
-var newA = document.createElement("a");
-//step 2 - put the new html elements where we wan them. in this case, inside a ul tag
-var someDivtag = document.getElementById("someDiv").getElementsByTagName("ol")[0];
-someDivtag.appendChild(newLi);//at this point, the element newLi was added at the end of the list
-newLi.appendChild(newA);
-newA.innerHTML="epsilon";
-newA.setAttribute("href","#")
+	<head>
 
-someDivtag.insertBefore(newLi, someDivtag.getElementsByTagName("li")[0]); // we took the newLi element, and move it to position 0 (ie the first position)
+	<body>
 
-console.log("lesson 38 -  removing elements from html");
-var parent = document.getElementById("someDiv").getElementsByTagName("ul")[0];
-var child = parent.getElementsByTagName("li")[2];
-var removed = parent.removeChild(child); //removes an element, but we store the value it previously had, for example, to readd the "deleted" element, we would use:
+		<h1 id="page-title">Going back to review the basic concepts</h1>
+		<div id="content">
+			<p>I can change colors on my own, unless you click me</p>
+
+		</div>
+		<div class="row">
+			<div class="innerDiv" id="someDiv">
+				<h3 id="listTitle1">This is an unordered list (click me and I display a message, hover over me and I send a message
+					to the console)</h3>
+				<ul id="unorderedList">
+					<li><a href="https://www.google.com">to google</a></li>
+					<li><a href="./A_second_page.html">use this link to move on to another page</a></li>
+					<li>just another item on the list</li>
+				</ul>
+				<span>You shouldn't see this text</span>
+				<h3 id="listTitle2">This is an ordered list</h3>
+				<ol id="orderedList">
+					<li><a href="#">alpha</a></li>
+					<li><a href="#">beta</a></li>
+					<li><a href="#">gamma</a></li>
+					<li><a href="#">delta</a></li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<h3 id="author">by Carlos Salcedo </h3>
+			<p>These are just very simple and basic contents</p>
+			<p id="changeMe">This paragraph should be changed via javascript</p>
+		</div>
+		<div class="row">
+			<h4 id="author">lesson 34 </h3>
+				<p>The attributes of the following link have been changed to take you to google.com: <a href="#" id="test" class="ninja">click
+						me if you wish to go to google.com</a></p>
+		</div>
+
+		<div class="row">
+			<h4 id="author"> More interesting stuff </h3>
+				<p class="open" id="content1">This paragraph will change if you click the button!</p>
+				<button type="button" id="button1">Click Me!</button>
+				<p id="timeParagraph">The Time is: <span id="clock"></span></p>
+				<button type="button" id="button2">Update Time!</button>
+		</div>
+
+		<div class="row" id="message">
+			<h4 id="timers">Timers in JavaScript</h3>
+				<p class="open" id="timercontent">After 5 seconds, you will see 5 random numbers appear automatically: </p>
+				<p id="every3seconds"> Just a random number every 3 seconds: <div id="randomNumber">
+						<div>
+				</p>
+		</div>
+
+		<div class="row" id="formDiv">
+			<form id="my-form" name="myForm" action="#">
+				<label for="name">Name:</label>
+				<input type="text" name="name"></input><br />
+				<label>Hobbies:</label><br />
+				<input type="checkbox" name="biking" value="biking">Biking</input><br />
+				<input type="checkbox" name="skiing" value="skiing">Skiing</input><br />
+				<input type="checkbox" name="driving" value="driving">driving</input><br />
+				<label for="color">Favorite color: </label>
+				<select name="color">
+					<option>Yellow</option>
+					<option>Blue</option>
+					<option>Red</option>
+					<option>Black</option>
+					<option>White</option>
+				</select><br />
+				<hr />
+				<input type="submit" name="submit" value="Submit"></input>
+			</form>
+		</div>
+
+
+		<div class="row" id="lastBeginnerTutorial">
+			<div>
+				<h4>JavaScript Libraries</h4>
+				<p>Libraries let you:</p>
+				<ul>
+					<li>General Purposes</li>
+					<li>Animation</li>
+					<li>Form enhancement</li>
+					<li>Video</li>
+					<li>Many more...</li>
+				</ul>
+				<p>In this tutorial, they us the <a href="https://jquery.com/download/" id="jqueryLink"><u>JQuery library</u><a>.
+							You can download the JQuery libraries, or use a content delivery network (CDN). CDN are basically repositories
+							online that anyone can access, and basically, if someone already a CDN for one page, the content doesn't need be
+							redownloaded if it is accessed later on in another completely separate page. </p>
+				<p>Recommended Libraries to check out: jQuery, MooTools, Modernizr</p>
+				<p>Recommended technologies to look into (other parts of JavaScript): AJAX(Communicate with server without
+					refreshing the page), JSON(How to store the data)</p>
+				<p>Using the libraries tutorial, we are going to modify this paragraph</p>
+
+			</div>
+		</div>
+
+
+
+		<script>
+
+			/**
+			Little rules for JavaScript
+			1) JavaScript is case sensitive
+			2) every statement ends with a semicolon, and a statement is basically an action you want JavaScript to do (ie alert message, change background, etc. )
+			3) White space doesn't matter
+			4) Comments are done in the same way as in Java
+			5) JavaScript runs from top to bottom
+			6) You can store functions in variables, and pass functions into functions
+			**/
+
+			console.log("These are the common operationrs: = assign, + addition, - subtraction, / division, * multiplication");
+			console.log("These are \"Math Operators Short hand\" - basically, all you have to add is to put the operator before the equal sign (+=, -=, /= and *=) ");
+			// Now we are going to work with conditionals (booleans)
+			var iLikeMeat = true; // This is the boolean
+			iLikeMeat = "true"; // this is the string true
+			iLikeMeat = false; // now iLikeMeat is boolean again
+			console.log("Is the variable iLikeMeat equal to true??? " + (iLikeMeat == true));
+			//Within javascript, 0 and -0 are equal to false. All other numbers would equal to true. for example:
+			console.log("Within javascript, 0 and -0 are equal to false. All other numbers would equal to true. for example:");
+			console.log(Boolean(0));
+			console.log(Boolean(-0));
+			console.log(Boolean(100202010120));
+
+			var myVariableCarlos;
+			myVariableCarlos = 10;
+			myVariableCarlos = 10 + 10;
+			console.log("myVariableCarlos is equal to: " + myVariableCarlos + ". \nJavaScript treats variables similar to python. In other words, you don't have to declare the type of variable. Everything is expressed with just the keyword 'var'");
+			myVariableCarlos = "My names is Carlos"
+			console.log("Variables can easily change from one type to another and viceversa, depending on how you use them in your code.")
+
+			//////////lesson 11 - control flow and if statements ////////////
+			var myPI = 3.1;
+			if (myPI > 3.14) {
+				console.log("MyPI is greater than the actual value of pi. MyPI = " + myPI)
+			} else if (myPI < 3.14) {
+				console.log("MyPI is less than the actual value of pi. MyPI = " + myPI)
+			} else {
+				console.log("MyPI is close enough to the actual value of pi. MyPI = " + myPI)
+			}
+			/////////////////////////////////////////////////////////////////
+
+			var age = 5;
+			while (age <= 10) {
+				console.log("Your age is less than 10. You are " + age);
+				age++;
+			}
+			console.log("you are now over 10");
+
+			//////////////////////////////////////////////////////////////////
+			var links = document.getElementsByTagName("a");
+			for (i = 0; i <= links.length; i++) {
+				console.log("this is link number " + i + " " + links[i]);
+			}
+
+			//////////////////////////////////////////////////////////////////
+			// the "break" and "continue" keywords
+			for (j = 0; j < 10; j++) {
+				if (j === 5) {
+					console.log("We are skipping 5");
+					continue;
+				}
+				console.log(i);
+
+				if (j === 7) {
+					break;
+				}
+			}
+			console.log("I've broken out of the loop");
+
+			//////////////////////////////////////////////////////////////////
+			// example of a useful use for loops
+
+			var links = document.getElementsByTagName("a");
+			for (i = 0; i < links.length; i++) {
+				links[i].className = "Link-" + i; // we added an id to all links in an ordered list
+			}
+
+			//////////////////////////////////////////////////////////////////
+			// introduction to  functions
+			function getAverage(a, b) {
+				var average = (a + b) / 2;
+				return average;
+			}
+
+			getAverage(67, 134);
+			var myResult = getAverage(1, 2);
+			console.log("");
+			/////////////////////////////////////////////////////////////////
+			// lesson 21 variable scope
+			var foo = 20; // global variable
+			function myFunction() {
+				var bar = 10; // local variable - only works in the function
+			}
+			/////////////////////////////////////////////////////////////////
+			// lesson 22 - working with numbers
+			var myNumber = 5;
+			Math.round(7.5);
+			// lesson 23 - NaN = Not a numbers
+			var a = 7;
+			var b = 6;
+			if (isNaN(a)) {
+				console.log("That ain't even a number");
+			} else {
+				console.log("The meaning of life is: " + (a * b));
+			}
+
+
+			/////////////////////////////////////////////////////////////////
+			// Strings are objects, so they have methods and properties
+			// for example
+			var myString = "This is just a cool \"string\"";
+			console.log("This is the value of myString: " + myString);
+			console.log("This is the length(num of char) of myString: " + myString.length);
+			console.log(myString.toUpperCase());
+			console.log(myString.toLowerCase());
+			console.log("This is the index of the word \"string\" in myString:  " + myString.indexOf("string"));
+			console.log("if a word doesn't exist, javascript will return a" + myString.indexOf("ninja"));
+
+			if (myString.indexOf("Carlos") == -1) {
+				console.log("The word Carlos is not in myString variable");
+			}
+
+			console.log("Now lets compare strings");
+			var string1 = "abc";
+			var string2 = "ABC";
+			console.log(string1 === string2);//This is case sensitive
+			console.log(string1.toLowerCase() === string2.toLowerCase());//This is case sensitive
+			console.log(string1 > string2);//This is case sensitive
+			//// slice and dice strings - tutorial 25
+			var str = "hello, world!";
+
+			var str2 = str.slice(2, 9); //specifies beginning and end
+			var str3 = str.slice(7); //specifies beginning, but not the end
+			console.log("str2: " + str2);
+			console.log("str3: " + str3);
+			var tags = "meat, ham, salami, pork, beef, chicken";
+			var tagsArray = tags.split(",");
+			console.log(tagsArray);
+			////// javascript arrays - lesson 25  + bonus "Common Array Methods - Beau teaches JavaScript"
+			var myArray = [];
+			myArray[0] = 25;
+			myArray[1] = true;
+			myArray[2] = "hello";
+			myArray[3] = "zzz";
+			myArray[4] = false;
+			var myArray2 = [10, 20, "hi", false];
+			var myArrayA = [];
+			var myArrayB = ["we add the elements inside", true, 100, "like this"];
+			//a few methods with arrays
+			console.log("This is the value of myArray: " + myArray);
+			console.log("Length of myArray = " + myArray.length);
+			console.log("myArray in reversed order = " + myArray.reverse());
+			console.log("myArray in sorted order = " + myArray.sort());
+
+			// the bonus
+			console.log("bonus array methods");
+			myArray.push("true");
+			console.log("myArray = " + myArray);
+			console.log("The last element of my array WAS " + myArray.pop()); //returns the last element, and removes it from the list
+			var myArrayC = myArray.concat(myArray2);
+			console.log(myArray);
+			console.log(myArray2);
+			console.log(myArrayC);
+			console.log("the join method unifies the elemnts of the array into a single continuous string, putting in between whatever you chose. In the example, we use ! to separate the elements, but you can also leave that blank. Example: " + myArray.join("!"));
+			console.log("The shift method does the same as pop, but instead of removing from the end, it removes from the fronty. example: " + myArray.shift());
+			console.log(myArray);
+			console.log("The unshift method is the same as push, but adds the elements at the begining of the array " + myArray.unshift("hello world"));
+			console.log(myArray);
+			console.log("The slice method also works for arrays. you just select where to start, and where to finish. myArray.slice(2,4) = display items in position 2 through 3. " + myArray.slice(2, 4));
+
+			console.log("finally, we have splice, which is a little more complicated. the example would be: myArray.splice(N,M,....); where N = where to start the splice, M = how many elements to replace from the splice onward, and the .... represent the new elements we are going to add instead. We could replace 100 elements for 1, or 1 for 100, or even more if you wish.  ");
+			myArray.push("abc");
+			myArray.unshift("xyz");
+			console.log(myArray);
+			myArray.splice(1, 2, "pqr", "stu", "def");
+			console.log(myArray);
+
+
+			console.log("///// end of arrays /////")
+			/// side note = knowing how to round a number in JavaScript
+			function roundToN(num1, num2) {
+				return +(Math.round(num1 + "e+" + num2) + "e-" + num2);
+			}
+			var MyPI = roundToN(Math.PI, 3); //returns the value of PI rounded to 3 decimal places
+			/// end of side note
+
+			/////////////// Objects ////////////////// lesson 27 and 28
+
+			var myCar = new Object();
+			myCar.driver = "Carlos";
+			myCar.speed = 50;
+			myCar.drivable = true;
+			myCar.drive = function () {
+				console.log(this.name + " is now Driving");
+			};
+			myCar.name = "mustang";
+
+			myCar2 = {
+				driver: "Dasaed",
+				speed: 50,
+				driveable: true,
+				drive: function () {
+					console.log(this.name + " is now Driving, yay!");
+				},
+				name: "corvette",
+				test: function () {
+					console.log(this);
+				},
+				logDriver: function () {
+					console.log("The driver of " + this.name + " is: " + this.driver);
+				}
+			}; // end of myCar2
+			console.log("First Car: " + myCar.name);
+			myCar.drive();
+			console.log("Second Car: " + myCar2.name);
+			myCar2.drive();
+			console.log("Now I compare this for an object, vs this for the entire document");
+			myCar2.test();
+			console.log(this);
+			myCar2.logDriver();
+
+			/// constructor functions
+			/// the variable normally starts with a capital letter - lesson 30
+			var Vehicle = function (name, driver, wheels, maxSpeed, flies, boat) {
+				this.name = name;
+				this.wheels = wheels;
+				this.maxSpeed = maxSpeed;
+				this.driver = driver;
+				this.logDriver = function () {
+					console.log("The driver of " + this.name + " is " + this.driver);
+				};
+				this.flies = flies;
+				this.boat = boat;
+			};
+
+			var motorcycle = new Vehicle("harley", "dasa", 2, 140);
+			motorcycle.logDriver();
+
+
+			console.log("//// now we are getting into more interesting stuff ////");
+			console.log("Lesson 31 -  the date object");
+			var myDate = new Date(); //stores current date
+			// var AnotherFullDate = new Date (year, month, day, hour, minutes, seconds)
+			console.log("Today is " + myDate);
+			var myPastDate = new Date(1545, 11, 21, 10, 30, 15);
+			var myFutureDate = new Date(2145, 10, 1, 10, 30, 40);
+			console.log(myPastDate);
+			console.log(myFutureDate);
+			var birthday = new Date(2000, 0, 1, 0, 0, 0);//notice that months range from 0 to 11
+			console.log(birthday.toDateString());
+			console.log(birthday.getFullYear());
+			console.log(birthday.getMonth());
+			console.log(birthday.getDate()); // the day of the month
+			console.log(birthday.getHours());
+			console.log(birthday.getMinutes());
+			console.log(birthday.getSeconds());
+			console.log(birthday.getDay());// the day of the week ranges from 0 to 6, where 0=sunday!
+			console.log(birthday.getTime()); // gets the number of milliseconds since 1st Jan 1970 (epoch time)  ---> useful when comparing objects.
+			console.log("//////////////// THE DOM!!! - lesson 32 //////////////////");
+			/*
+			Documento Object Model
+			Use the DOM when interacting with the web pages
+			  - add content to an html document
+			  - delete content to an html document
+			  - change content to an html document
+			*For now, the document would be the page, normally an HTML document.
+			*Every HTML element in the document is an objects
+			  -<head></head> is an object
+			  -<body></body> is an object
+			  -<footer></footer> is an object
+			  -Basically any html tag is an object
+			*The Model
+								  HTML
+							  /         \
+							head         body
+							|           /     \
+						  title       ul      div
+									/  |  \     \
+								   li li li      p
+			The model is sort of just a tree organization of the page
+			within the model, we have nodes
+			Node = everything we can change in the document is a node (elements, text within elements, html attributes)
+			
+			*/
+			//  lesson 33 -  traversing the DOM
+			//33 JavaScript to get getElements
+			var elementClass = document.getElementsByClassName("row");
+			console.log(elementClass);
+			var elementTag = elementClass[1].getElementsByTagName("h3");
+			console.log(elementTag);
+			elementTag[0].innerHTML = "This is part of a more advanced tutorial";
+			var elementID = document.getElementById("changeMe");
+			console.log(elementID);
+			//lesson 34
+			console.log("lesson 34")
+			var mySpan = document.getElementsByTagName("span");
+			mySpan[0].innerHTML = "<p>I used to be a span, but now I am a pragraph</p>";
+			var p2change = document.getElementById("changeMe")
+			p2change.innerHTML = "<b>I changed you via JavaScript</b>";
+
+			//lesson 35
+			console.log("lesson 35");
+			var link = document.getElementById("test"); // <a href="/index.html" id="test" class="ninja">attributes</a>
+			link.getAttribute("href"); // obtain the value of the attribute href
+			link.getAttribute("class"); // obtain the value of the attribute class
+
+			// link.href is different from link.getAttribute("href")
+			// link.getAttribute("href") == to what is actually inside the html tag --> in our example, this would return "/index.html"
+			// link.href == what the value of href actually represents --> in our example, this would return "file:///C:/Users/Lenovo/git/Node_JS_Tutorials/web_tutorials/net_ninja_tutorials/index.html#"
+			//The following methods, change the values of the attributes inside the html tag
+			link.setAttribute("Class", "pie"); // change the value of class
+			link.setAttribute("href", "https://www.google.com") // change the value of label
+
+			console.log("lesson 36 - changing CSS attributes");
+			var title = document.getElementById("page-title");
+			console.log(title);
+			title.setAttribute("sytle", "position: relative,");
+			title.setAttribute("sytle", "left: 10px,");
+			title.setAttribute("sytle", "position: relative, left: 25px,");
+			title.style.color = "blue";
+			title.style.backgroundColor = "#ff9999";
+
+			console.log("lesson 37 -  adding elements to DOM");
+			// 2 steps: 1) create the html element, 2) put that html where we want it
+			//example
+			//step 1 - create the new elements that we wish to add
+			var newLi = document.createElement("li");
+			var newA = document.createElement("a");
+			//step 2 - put the new html elements where we wan them. in this case, inside a ul tag
+			var someDivtag = document.getElementById("someDiv").getElementsByTagName("ol")[0];
+			someDivtag.appendChild(newLi);//at this point, the element newLi was added at the end of the list
+			newLi.appendChild(newA);
+			newA.innerHTML = "epsilon";
+			newA.setAttribute("href", "#")
+
+			someDivtag.insertBefore(newLi, someDivtag.getElementsByTagName("li")[0]); // we took the newLi element, and move it to position 0 (ie the first position)
+
+			console.log("lesson 38 -  removing elements from html");
+			var parent = document.getElementById("someDiv").getElementsByTagName("ul")[0];
+			var child = parent.getElementsByTagName("li")[2];
+			var removed = parent.removeChild(child); //removes an element, but we store the value it previously had, for example, to readd the "deleted" element, we would use:
 //parent.appendChild(removed);
-</script>
+		</script>
 
-<script type="text/javascript">
-// lesson 39 - events
- var titlelist1 = document.getElementById("listTitle1");
-titlelist1.onclick = function() {
-	alert("You clicked me!");
-};
-titlelist1.onmouseover = function(){
-	console.log("you hovered your mouse over the title");
-};
-// lesson 40 -  example of the onclick event
-var contentP =  document.getElementById("content1");
-var button1 = document.getElementById("button1");
+		<script type="text/javascript">
+			// lesson 39 - events
+			var titlelist1 = document.getElementById("listTitle1");
+			titlelist1.onclick = function () {
+				alert("You clicked me!");
+			};
+			titlelist1.onmouseover = function () {
+				console.log("you hovered your mouse over the title");
+			};
+			// lesson 40 -  example of the onclick event
+			var contentP = document.getElementById("content1");
+			var button1 = document.getElementById("button1");
 
-button1.onclick = function(){
-	if(contentP.className == "open"){
-		contentP.style.color="#FF0000";
-		contentP.style.backgroundColor="#000077";
-		contentP.innerHTML = "I am <b>red</b> with a blue background. Click the button to flip my colors";
-		contentP.setAttribute("class","close");
+			button1.onclick = function () {
+				if (contentP.className == "open") {
+					contentP.style.color = "#FF0000";
+					contentP.style.backgroundColor = "#000077";
+					contentP.innerHTML = "I am <b>red</b> with a blue background. Click the button to flip my colors";
+					contentP.setAttribute("class", "close");
 
-	} else if(contentP.className="close"){
-		contentP.style.color="#000077";
-		contentP.style.backgroundColor="#FF0000";
-		contentP.innerHTML = "I am <i>blue</i> with a red background. Click the button to flip my colors";
-		contentP.setAttribute("class","open");
-	}
-};
+				} else if (contentP.className = "close") {
+					contentP.style.color = "#000077";
+					contentP.style.backgroundColor = "#FF0000";
+					contentP.innerHTML = "I am <i>blue</i> with a red background. Click the button to flip my colors";
+					contentP.setAttribute("class", "open");
+				}
+			};
 
-</script>
+			var currTime = function () {
+				var theTime = new Date();
+				var minutos = theTime.getMinutes();
+				var horas = theTime.getHours();
+				var segundos = theTime.getSeconds();
+				var laHora = horas + ":" + minutos + ":" + segundos;
+				return laHora;
+			};
+			button2.onclick = function () {
+				document.getElementById("clock").innerHTML = currTime();
+			};
 
 
-<script type="text/javascript">
-console.log(Math.round(7.8)+Math.floor(7.8));
-console.log("The value of pi is: "+Math.PI);
+			// lesson 41 -  the window.onload function
 
-</script>
-</body>
+			// lesson 42 - timers = setTimeout() and setTimeInterval()
+			function randomNumbers() {
+				var newList = document.createElement("ul");
+				var newElements = [];
+				var counter = 0;
+				while (counter < 5) {
+					newElements[counter] = document.createElement("li");
+					newElements[counter].innerHTML = Math.round(Math.random() * 11);
+					console.log(newElements[counter]);
+					newList.appendChild(newElements[counter]);
+					counter++;
+				}
+				var myMessage = document.getElementById("message");
+				myMessage.insertBefore(newList, document.getElementById("every3seconds"));
 
-<footer>
-  <p>Made by: Carlos Salcedo</p>
-</footer>
+			};
+
+			setTimeout(randomNumbers, 5000);
+
+			var colorChanger = document.getElementById("content");
+			var colors = ["red", "blue", "green", "purple", "navy", "white"];
+			var counter2 = 0;
+			var contChanging = true;
+
+			function changeColor() {
+				colorChanger.style.backgroundColor = colors[counter2];
+				counter2++;
+				if (counter2 == 6) {
+					counter2 = 0;
+				};
+			}
+
+			//var myInterval = setInterval(changeColor, 3000);
+			var intervalStarter = setInterval(changeColor, 1000);
+			colorChanger.onclick = function () {
+				if (contChanging == true) {
+					clearInterval(intervalStarter);
+					colorChanger.innerHTML = "Not Changing Colors.";
+					contChanging = false;
+				} else {
+					intervalStarter = setInterval(changeColor, 1000);
+					colorChanger.innerHTML = "Changing Colors!!!";
+					contChanging = true;
+				}
+			};
+
+
+
+			// lesson 43 -  forms
+			var myForm = document.forms.myForm;
+			myForm.style.backgroundColor = "blue";
+			myForm.style.border = "4px solid";
+			// to get the values of the options in the form
+			myForm.name.value;
+			myForm.color.value;
+			myForm.biking.checked;
+			myForm.skiing.checked;
+			myForm.driving.checked;
+			//
+			myForm.name.onfocus = function () {
+				myForm.name.style.border = "4px solid pink";
+			};
+			myForm.name.onblur = function () {
+				myForm.name.style.border = "1px solid gray";
+			};
+			myForm.onsubmit = function () {
+				if (myForm.name.value == "") {
+					alert("Please tell me your name");
+					return;
+				}
+				if (myForm.biking.checked == false && myForm.skiing.checked == false && myForm.biking.checked == false) {
+					alert("Please select at least one hobby");
+					return;
+				}
+				confirm("This is the information you entered: | " + "Name: " + myForm.name.value + " | Fav Color: " + myForm.color.value + " | Fav Hobbies [biking:" + myForm.biking.checked + "][skiing:" + myForm.skiing.checked + "][driving:" + myForm.driving.checked + "]");
+			};
+
+
+
+		</script>
+
+
+		<script type="text/javascript">
+			console.log(Math.round(7.8) + Math.floor(7.8));
+			console.log("The value of pi is: " + Math.PI);
+
+		</script>
+	</body>
+
+	<footer>
+		<p>Made by: Carlos Salcedo</p>
+	</footer>
 
 </html>
